@@ -53,8 +53,10 @@ body {
 }
 main {
   width: 100%;
-  overflow: hidden;
 }
+.anime {
+}
+
 .intro {
   background: linear-gradient(var(--intro-bg), var(--cta-mobile)),
     url(/images/bg-pattern-intro.svg);
@@ -69,11 +71,12 @@ main {
 }
 
 .hamburger {
-  width: 50px;
+  width: 40px;
   cursor: pointer;
+  display: block;
 }
 .burger {
-  width: 75%;
+  width: 70%;
   height: 3px;
   background: white;
   display: block;
@@ -83,56 +86,57 @@ main {
 }
 /* this is an adjacent selector which means any element following thre preceeding defined element is affect */
 .burger + .burger {
-  margin-top: 6px;
+  margin-top: 5px;
 }
 /* this is the active class which will be defined in the js when toggle is needed of class burger */
-.active .burger:nth-child(1) {
-  animation: top 0.8s ease forwards;
+.hamburger.active .burger:nth-child(1) {
+  animation: top 0.3s ease forwards;
 }
-.active .burger:nth-child(1) {
-  animation: top-2 0.8s ease forwards;
+.burger:nth-child(1) {
+  animation: top-2 0.3s ease forwards;
 }
 
-.active .burger:nth-child(2) {
-  animation: scaled 0.8s ease forwards;
+.hamburger.active .burger:nth-child(2) {
+  animation: scaled 0.3s ease forwards;
 }
-.active .burger:nth-child(2) {
-  animation: scaled-2 0.8s ease forwards;
+.burger:nth-child(2) {
+  animation: scaled-2 0.3s ease forwards;
 }
-.active .burger:nth-child(3) {
-  animation: bottom 0.8s ease forwards;
+.hamburger.active .burger:nth-child(3) {
+  animation: bottom 0.3s ease forwards;
 }
-.active .burger:nth-child(3) {
-  animation: bottom-2 0.8s ease forwards;
+.burger:nth-child(3) {
+  animation: bottom-2 0.3s ease forwards;
 }
 /* definding the keyframes for the animation */
 @keyframes top {
   0% {
     top: 0;
-    transform: rotate(0);
+    transform: rotate(0deg);
   }
   50% {
-    top: 22px;
-    transform: rotate(0);
+    top: 4px;
+    transform: rotate(0deg);
   }
   100% {
-    top: 22px;
-    transform: rotate(135deg);
+    top: 20px;
+
+    transform: rotate(45deg);
   }
 }
 /* this means it will start at 0 at 0%, 50% it moves 22px top but still at 0deg at 100% it stays 22px but rotate 45deg */
 @keyframes top-2 {
   0% {
     top: 22px;
-    transform: rotate(135deg);
+    transform: rotate(45deg);
   }
   50% {
-    top: 22px;
-    transform: rotate(0);
+    top: 2px;
+    transform: rotate(0deg);
   }
   100% {
-    top: 0px;
-    transform: rotate(0);
+    top: 0;
+    transform: rotate(0deg);
   }
 }
 
@@ -142,21 +146,22 @@ main {
     transform: rotate(0);
   }
   50% {
-    top: 22px;
-    transform: rotate(0);
+    top: 4px;
+    transform: rotate(0deg);
   }
   100% {
-    top: 22px;
-    transform: rotate(90deg);
+    top: 4px;
+    transform: rotate(135deg);
   }
 }
 @keyframes bottom-2 {
   0% {
-    top: 22px;
-    transform: rotate(90deg);
+    top: 4px;
+
+    transform: rotate(135deg);
   }
   50% {
-    top: 22px;
+    top: 4px;
     transform: rotate(0);
   }
   100% {
@@ -196,10 +201,10 @@ header {
   width: 5.5em;
 }
 
-nav {
+.navigation {
   display: none;
 }
-.navigation ul {
+nav ul {
   list-style-type: none;
   background: var(--white-text);
   position: relative;
@@ -209,14 +214,14 @@ nav {
 
   text-align: center;
 }
-.navigation ul li {
+nav ul li {
   text-decoration: none;
   text-transform: capitalize;
   padding: 1em 0;
   color: var(--body-text);
   font-family: var(--font1);
 }
-.navigation ul li a {
+nav ul li a {
   text-decoration: none;
   color: var(--body-text);
   font-family: var(--font2);
@@ -236,19 +241,18 @@ nav {
   padding: 0.8em 0;
   margin: 0 30%;
 }
-.product .nav-links li:hover {
+.product #nav-links li:hover {
   background: var(--red-cta-hover);
   color: var(--red-cta-text);
 
-  height: 50%;
-  border-radius: 5%;
+  height: 50px;
+  border-radius: 5rem;
 }
-.product .nav-links {
+.product #nav-links {
   display: none;
 }
-.product:hover .nav-links {
+.product:hover #nav-links {
   display: block;
-  transition: all 0.5s linear;
 }
 .light-arrow {
   display: none;
@@ -269,7 +273,7 @@ nav {
   background-color: var(--white-snow);
   overflow: hidden;
   padding: 1em 0;
-  margin: 1em;
+  margin: 1em 0;
 }
 .nav-header .company ul li {
   font-weight: 400;
@@ -277,19 +281,18 @@ nav {
   padding: 0.8em 0;
   margin: 0 30%;
 }
-.company .nav-links li:hover {
+.company #nav-links li:hover {
   background: var(--red-cta-hover);
   color: var(--red-cta-text);
 
-  height: 50%;
-  border-radius: 5%;
+  height: 50px;
+  border-radius: 5rem;
 }
-.company .nav-links {
+.company #nav-links {
   display: none;
 }
-.company:hover .nav-links {
+.company:hover #nav-links {
   display: block;
-  transition: all 0.5s linear;
 }
 /* conect section */
 .nav-header .connect ul {
@@ -305,19 +308,18 @@ nav {
   padding: 0.8em 0;
   margin: 0 30%;
 }
-.connect .nav-links li:hover {
+.connect #nav-links li:hover {
   background: var(--red-cta-hover);
   color: var(--red-cta-text);
 
-  height: 50%;
-  border-radius: 5%;
+  height: 50px;
+  border-radius: 5rem;
 }
-.connect .nav-links {
+.connect #nav-links {
   display: none;
 }
-.connect:hover .nav-links {
+.connect:hover #nav-links {
   display: block;
-  transition: all 0.5s linear;
 }
 hr {
   border-top: 1px solid var(--body-text);
@@ -366,6 +368,7 @@ hr {
   border-radius: 5rem;
   margin: 0 auto;
   width: 150px;
+  height: 50px;
   margin-bottom: 1em;
 }
 
@@ -760,6 +763,21 @@ footer {
     position: relative;
     top: -10%;
     width: 100%;
+    /* animation: move 3s ease-in-out infinite forwards;
+  }
+
+  /* definding the keyframes for the animation */
+    /* @keyframes move {
+    0% {
+      transform: translateY(-40%);
+    }
+    50% {
+      transform: translateY(-10%);
+    }
+    100% {
+      transform: translateY(-5%);
+    }
+  }*/
   }
   .state-text {
     grid-column: 2 / span4;
@@ -835,10 +853,10 @@ footer {
   .hamburger {
     display: none;
   }
-  nav {
+  .navigation {
     display: block;
   }
-  .navigation ul {
+  nav ul {
     background: inherit;
     position: inherit;
     width: 90%;
@@ -848,11 +866,11 @@ footer {
     margin: 0 0em 0 9em;
     margin-top: -5em;
   }
-  .navigation ul li {
+  nav ul li {
     float: left;
     color: var(--white-text);
   }
-  .navigation ul li a {
+  nav ul li a {
     text-decoration: none;
     color: var(--white-text);
     font-family: var(--font2);
@@ -878,16 +896,18 @@ footer {
   .connect {
     margin-right: 25%;
   }
-
+  nav ul ul {
+    margin: 0 -30%;
+  }
   .nav-header > .product::after {
     content: "";
     position: absolute;
-    bottom: 45px;
+    bottom: 50px;
     left: 0;
     -webkit-transform: translateX(-3%);
     transform: translateX(-3%);
     display: block;
-    width: 20%;
+    width: 40%;
     height: 3px;
     background-color: white;
     opacity: 0;
@@ -896,13 +916,13 @@ footer {
     opacity: 1;
     bottom: 85%;
   }
+
   .nav-header .product ul {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     background-color: var(--white-text);
     justify-content: center;
-    height: 30vh;
     align-items: center;
     padding: -2em -10%;
     margin: 1em 0;
@@ -914,20 +934,41 @@ footer {
     cursor: pointer;
   }
 
+  .product #nav-links li:hover {
+    background: none;
+    color: var(--blue-heading);
+    border-radius: none;
+  }
+
   .nav-header .product ul li {
     font-weight: 400;
     font-family: var(--font2);
-    padding: 0.4em 50%;
+    padding: 0.4em 5%;
     margin: 0 30%;
     display: block;
   }
+
+  .nav-header .product ul {
+    width: 100%;
+    background-color: var(--white-snow);
+    overflow: hidden;
+    padding: 1em 0;
+    margin: 1em 0;
+  }
+  .nav-header .product ul li {
+    font-weight: 400;
+    font-family: var(--font2);
+    padding: 0.8em 0;
+    margin: 0 30%;
+  }
+
   .nav-header .product ul li a {
     color: var(--body-text);
     cursor: pointer;
   }
 
   .product ul li a:hover {
-    background: inherit;
+    background: none;
     color: var(--body-blue-bg);
   }
   .product #nav-links {
@@ -943,29 +984,27 @@ footer {
   .nav-header > .company::after {
     content: "";
     position: absolute;
-    bottom: 45px;
+    bottom: 50px;
     left: 0;
     -webkit-transform: translateX(-3%);
     transform: translateX(-3%);
     display: block;
-    width: 20%;
+    width: 40%;
     height: 3px;
     background-color: white;
     opacity: 0;
-    -webkit-transition: opacity 0.2s linear;
-    transition: opacity 0.2s linear;
   }
   .nav-header > .company:hover::after {
     opacity: 1;
     bottom: 85%;
   }
+
   .nav-header .company ul {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     background-color: var(--white-text);
     justify-content: center;
-    height: 30vh;
     align-items: center;
     padding: -2em -10%;
     margin: 1em 0;
@@ -977,19 +1016,41 @@ footer {
     cursor: pointer;
   }
 
+  .company #nav-links li:hover {
+    background: none;
+    color: var(--blue-heading);
+    border-radius: none;
+  }
+
   .nav-header .company ul li {
     font-weight: 400;
     font-family: var(--font2);
-    padding: 0.4em 50%;
+    padding: 0.4em 5%;
+    margin: 0 30%;
+    display: block;
+  }
+
+  .nav-header .company ul {
+    width: 100%;
+    background-color: var(--white-snow);
+    overflow: hidden;
+    padding: 1em 0;
+    margin: 1em 0;
+  }
+  .nav-header .company ul li {
+    font-weight: 400;
+    font-family: var(--font2);
+    padding: 0.8em 0;
     margin: 0 30%;
   }
+
   .nav-header .company ul li a {
     color: var(--body-text);
     cursor: pointer;
   }
 
   .company ul li a:hover {
-    background: inherit;
+    background: none;
     color: var(--body-blue-bg);
   }
   .company #nav-links {
@@ -997,36 +1058,34 @@ footer {
   }
   .company:hover #nav-links {
     display: block;
-    transition: all 0.5s linear;
+    transition: none;
   }
   /* conect section */
 
   .nav-header > .connect::after {
     content: "";
     position: absolute;
-    bottom: 45px;
+    bottom: 50px;
     left: 0;
     -webkit-transform: translateX(-3%);
     transform: translateX(-3%);
     display: block;
-    width: 20%;
+    width: 40%;
     height: 3px;
     background-color: white;
     opacity: 0;
-    -webkit-transition: opacity 0.2s linear;
-    transition: opacity 0.2s linear;
   }
   .nav-header > .connect:hover::after {
     opacity: 1;
     bottom: 85%;
   }
+
   .nav-header .connect ul {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     background-color: var(--white-text);
     justify-content: center;
-    height: 30vh;
     align-items: center;
     padding: -2em -10%;
     margin: 1em 0;
@@ -1038,19 +1097,41 @@ footer {
     cursor: pointer;
   }
 
+  .connect #nav-links li:hover {
+    background: none;
+    color: var(--blue-heading);
+    border-radius: none;
+  }
+
   .nav-header .connect ul li {
     font-weight: 400;
     font-family: var(--font2);
-    padding: 0.4em 50%;
+    padding: 0.4em 5%;
+    margin: 0 30%;
+    display: block;
+  }
+
+  .nav-header .connect ul {
+    width: 100%;
+    background-color: var(--white-snow);
+    overflow: hidden;
+    padding: 1em 0;
+    margin: 1em 0;
+  }
+  .nav-header .connect ul li {
+    font-weight: 400;
+    font-family: var(--font2);
+    padding: 0.8em 0;
     margin: 0 30%;
   }
+
   .nav-header .connect ul li a {
     color: var(--body-text);
     cursor: pointer;
   }
 
   .connect ul li a:hover {
-    background: inherit;
+    background: none;
     color: var(--body-blue-bg);
   }
   .connect #nav-links {
